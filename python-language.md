@@ -58,6 +58,12 @@ Multiply (*)
 Divide (/)
 Exponent (**)
 
+**Parentheses**
+Use parentheses to modify the order of operations
+```python
+(2 + 3) * 4
+```
+
 **Floats**
 Any number with a decimal point is called a *float*
 
@@ -70,4 +76,25 @@ In Python 3.6 and later you may use underscoes to make large numbers more readab
 ```python
 population = 10_000_000_000
 ```
+
+**Multiple Assignments
+Assign values to more than one variable using a single line. Often used when initializing a set of numbers.
+```python
+x, y, z = 0, 0 ,0
+```
+
+**Constants
+A *constant* is like a variable whose value stays the same throughout the life of a program. Use all capital letters to indicate a variable should be treated as a constant. Contants can never be changed.
+```python
+CONST_NAME = "5000"
+```
+
+**Comments**
+A *comment* allows you to write notes within a program. A # indicates a comment. 
+```python
+# This is a comment.
+```
+
+
+
 
