@@ -95,6 +95,102 @@ A *comment* allows you to write notes within a program. A # indicates a comment.
 # This is a comment.
 ```
 
+### Lists
+
+A *list* is a collection of items in a particular order. Since list contain more than one element, it is best to make the name of the list plural. Square brackets ([]) indicate a list and individual elements are separated by commas.
+
+```python
+colors = ['red', 'blue', 'green', 'white]
+```
+
+**Accessing Elements in a List**
+Lists are ordered collections. To access an element in a list, write the name of the list followed by the *index* enclosed in square brackets. 
+Index positions start at 0.
+
+```python
+colors[0] 
+>> 'red'
+```
+
+To return the last item in the list:
+```python
+colors[-1]
+```
+
+**Changing, Adding, and Removing Elements**
+
+**Modifying Elements in a list**
+```python
+colors[0] = 'purple'
+```
+
+**Adding Elements to a List**
+To append a new element to the end of the list:
+```python
+colors.append('yellow')
+```
+
+**Inseting Elements into a List**
+To add an element at any position in the list use:
+```python
+colors.insert(0, 'pink')
+```
+
+**Removing Element from a List**
+```python
+del colors[1]
+```
+
+**pop() method**
+pop() method removes the last item in a list. This method return the removed element and you can assign this to a variable.
+```python
+last_color = colors.pop()
+```
+
+To remove an item from any position in a list by including the index inside the parentheses.
+```python
+first_color = colors.pop(0)
+
+**Removing an Item by Value
+```python
+favorite_color = 'yellow'
+colors.remove(favorite_color)
+```
+
+**Organizing a List**
+sort() method permanently sorts the list. This cannot be reversed. The follow list will be sorted alphabetically.
+```python
+colors.sort()
+```
+
+To reverse the alphabetical order, pass the argument *reverse-True*
+```python
+colors.sort(reverse=True)
+```
+
+To temporarily sort list use the sorted() function. 
+```python
+sorted(colors)
+```
+
+To reverse the order of a list:
+```python
+colors.reverse()
+```
+
+To find the length of a list:
+```python
+len(colors)
+```
+
+
+
+
+
+
+
+
+
 
 
 
