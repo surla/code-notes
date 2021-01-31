@@ -163,29 +163,48 @@ sort() method permanently sorts the list. This cannot be reversed. The follow li
 colors.sort()
 ```
 
-To reverse the alphabetical order, pass the argument *reverse-True*
+**To reverse the alphabetical order, pass the argument *reverse-True***
 ```python
 colors.sort(reverse=True)
 ```
 
-To temporarily sort list use the sorted() function. 
+**To temporarily sort list use the sorted() function.**
 ```python
 sorted(colors)
 ```
 
-To reverse the order of a list:
+**To reverse the order of a list:**
 ```python
 colors.reverse()
 ```
 
-To find the length of a list:
+**To find the length of a list:**
 ```python
 len(colors)
 ```
 
+**Looping through list**
+```pythong
+colors = ['red', 'white', 'blue', 'green']
+for color in colors:
+  print(color)
+  ```
 
+**Making Numerical Lists
+```python
+for value in range(1,5):
+  print(value)
+```
 
+**list() function**
+numbers = list(range(1,6))
+```
 
+**List Comprehensions**
+A *list comprehension* allows you to generate a list in one line of code.
+```python
+squares = [value**2 for value in range(1,11)]
+```
 
 
 
