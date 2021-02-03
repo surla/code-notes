@@ -104,3 +104,166 @@ Code added to tell Typescript what type of arguments a function will recieve and
 
 **Type inference for function**
 Typescript tries to figure out what type of value a function will return.
+
+
+### Arrays
+When creating empty array, use type annotations
+```
+const carMakers: string[] = [];
+
+// Type inference is used when array has objects
+const cars = ['ford', 'toyota', 'chevy'];
+
+const carsByMake0: string[][] = []
+const carsByMake = [
+  ['f150'],
+  ['corolla'],
+  ['camaro']
+]
+
+// Help with inference when extracting values
+const car = carMakers[0];
+const myCar = carmMakers.pop();
+
+// Prevent incompatitble values
+carMakers.push(100);
+
+// Help with 'map'
+carMakers.map((car:string): string => {
+  return car.toUpperCase();
+})
+```
+
+**Flexible Type**
+```
+const importantDates: (Date | string)[] = [new Date(), '2030-10-10'];
+importantDates.push('2030-10-20');
+importantDates.push(new Date());
+```
+
+Use type arrays anytime to represent a collection of records with some arbitrary sort order.
+
+###Tuples
+Array-like structure where each element represents some property of a record. Use objects instead of Tuples. 
+
+```
+const drink = {
+  color: 'brown',
+  carbonated: true,
+  sugar: 40
+};
+
+
+
+const pepsi: [string, boolean, number] = ['brown', true, 40];
+
+// Type alias
+type Drink = [string, boolean, number];
+
+const pepsi: Drink = ['brown', true, 40];
+const sprite: Drink = ['clear', true, 40];
+const tea: Drink = ['brown', false, 0];
+
+const carSpecs: [number, number] = [400, 3354];
+
+const carStats = {
+  horsepower: 400,
+  weight: 3354
+}
+```
+
+### Interfaces
+Creates a new type, describing the property names and values types of an object.
+
+```
+interface Vehicle {
+  name: string;
+  year: Date;
+  broken: boolean;
+  summary(): string;
+}
+
+interface Reportable {
+  summary(): string;
+}
+
+const oldCivic = {
+  name: 'civic',
+  year: new Date(),
+  broken: true,
+  summary(): string {
+    return `Name: $[this.name}`;
+  }
+};`
+
+<!-- const printVehicle = (vehicle: { name: string; year: number; broken: boolean; summary(): string }): void => {
+  console.log(`Name: ${vehicle.name}`);
+  console.log(`Year: ${vehicle.year}`);
+  console.log(`Broken: ${vehicle.broken}`);
+}; -->
+
+const printVehicle = (vehicle: Vehicle): void => {
+  console.log(`Name: ${vehicle.name}`);
+  console.log(`Year: ${vehicle.year}`);
+  console.log(`Broken: ${vehicle.broken}`);
+  console.log(vehile.summary());
+};
+
+const drink = {
+  color: 'brown',
+  carbonated: true,
+  sugar: 40,
+  summary(): string {
+    return `My drink has ${this.sugar} grams of suga `;
+  }
+}
+
+const printSummary = (item: Reportable): void => {
+  console.log(item.summary());
+}
+
+printSummary(oldCivic);
+printSummary(drink);
+```
+
+General Strategy for reusable code in Typescript:
+-Create functions that accept arguments that are typed with interfaces.
+-Objects/classes can decide to 'implement' a given interface to work with a function.
+
+### Classes
+
+Blueprint to create an object with fields (values) and methods (functions) to represent a 'thing'
+
+```
+class Vehicle {
+  protected honk(): void {
+    console.log('Beeeep!);
+  }
+}
+
+class Car extends Vehicle {
+  private drive(): void {
+    console.log('Zooooom!');
+  }
+
+  startDriving(): void {
+    this.drive();
+    this.honk();
+  }
+}
+
+
+
+const car = new Car();
+car.startDriving();
+car.honk();
+
+
+```
+
+**Class method modifiers**
+-Public - Method can be called any where, any time.
+-Private - This method can only be called by other methods in *this* class.
+-Protected - This method can be called by other methods in *this* class, or by other methods in child classes.
+
+
